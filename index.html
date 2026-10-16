@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#6b6bd6">
+<title>Live MCQ — তিনটি সেকশন</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f4fb;
+    --card: #ffffff;
+    --text: #1c1c28;
+    --muted: #6b6b80;
+    --line: #e4e4ef;
+    --brand: #6b6bd6;
+    --brand-soft: #ececfa;
+    --shadow: 0 4px 20px rgba(20, 20, 60, .08);
+    --shadow-hover: 0 10px 32px rgba(20, 20, 60, .16);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Hind Siliguri", "Noto Sans Bengali", system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 20px 64px;
+    background-image:
+      radial-gradient(circle at 15% 0%, #e6e6ff 0%, transparent 45%),
+      radial-gradient(circle at 85% 10%, #ffece0 0%, transparent 40%);
+  }
+  header {
+    text-align: center;
+    max-width: 720px;
+    margin-bottom: 44px;
+  }
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    background: var(--brand);
+    color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+    box-shadow: var(--shadow);
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-family: "Inter", "Hind Siliguri", sans-serif;
+    font-size: 34px;
+    line-height: 1.2;
+    margin: 0 0 12px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 17px;
+  }
+  .grid {
+    display: grid;
+    gap: 20px;
+    width: 100%;
+    max-width: 1080px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 820px) {
+    .grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  }
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    background: var(--card);
+    border-radius: 20px;
+    padding: 28px 26px 26px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--line);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    overflow: hidden;
+  }
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 5px;
+    background: var(--accent, var(--brand));
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--accent, var(--brand));
+  }
+  .icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background: var(--icon-bg, var(--brand-soft));
+    color: var(--accent, var(--brand));
+    margin-bottom: 18px;
+  }
+  .card h2 {
+    margin: 0 0 8px;
+    font-size: 21px;
+    line-height: 1.3;
+    font-weight: 700;
+  }
+  .card p {
+    margin: 0 0 20px;
+    color: var(--muted);
+    font-size: 15px;
+    flex: 1;
+  }
+  .go {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent, var(--brand));
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .go span { transition: transform .18s ease; }
+  .card:hover .go span { transform: translateX(4px); }
+  footer {
+    margin-top: 48px;
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+  }
+  /* per-card accent colors */
+  .c1 { --accent: #6b6bd6; --icon-bg: #ececfa; }   /* Topic Guru      — purple */
+  .c2 { --accent: #d68b2a; --icon-bg: #fdf0dd; }   /* প্রস্তুতি        — amber  */
+  .c3 { --accent: #2ea36a; --icon-bg: #e3f5ec; }   /* সেন্ট্রাল জব     — green  */
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">M</div>
+  <h1>Live MCQ</h1>
+  <p>প্রস্তুতির জন্য তিনটি সেকশন — একটি জায়গা থেকে বেছে নিন</p>
+</header>
+
+<main class="grid">
+
+  <a class="card c1" href="https://my-mcq.pages.dev/">
+    <div class="icon">📚</div>
+    <h2>টপিক গুরু</h2>
+    <p>বিষয়ভিত্তিক প্রস্তুতি — বাংলা সাহিত্য, ব্যাকরণ, ইংরেজি, সাধারণ জ্ঞান, গণিত ও আরও অনেক কিছু।</p>
+    <div class="go">শুরু করুন <span>→</span></div>
+  </a>
+
+  <a class="card c2" href="https://hola-mcq-prep.pages.dev/">
+    <div class="icon">🎯</div>
+    <h2>জব সল্যুশন (টপিকভিত্তিক)</h2>
+    <p>চাকরির পরীক্ষার প্রস্তুতির জন্য টপিকভিত্তিক প্রশ্ন — বিষয় অনুযায়ী সাজানো।</p>
+    <div class="go">শুরু করুন <span>→</span></div>
+  </a>
+
+  <a class="card c3" href="https://hola-mcq-js.pages.dev/">
+    <div class="icon">📝</div>
+    <h2>সেন্ট্রাল জব সল্যুশন</h2>
+    <p>পূর্বের রিয়েল জব পরীক্ষার মূল প্রশ্নের ব্যাখ্যাসহ সমাধান — বিসিএস, ব্যাংক, প্রাথমিক, NTRCA সহ।</p>
+    <div class="go">শুরু করুন <span>→</span></div>
+  </a>
+
+</main>
+
+<footer>
+  © Live MCQ · তিনটি সেকশন, একটি ঠিকানা
+</footer>
+
+</body>
+</html>
